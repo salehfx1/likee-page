@@ -7,194 +7,184 @@
 <meta name="description" content="LIKEE, ekstensi browser buat rapiin kerjaan administratif berulang. Lanjut pakai dengan menraktir kopi lewat menu Traktir Point Coffee.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Nunito+Sans:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
   :root {
-    --bg: #1b1712;
-    --bg-panel: #221c15;
-    --chalk: #f1e9d8;
-    --chalk-dim: #beb29a;
-    --gold: #d9a94c;
-    --sage: #8a9a70;
-    --rule: rgba(241, 233, 216, 0.16);
+    --green-deep: #123423;
+    --green: #1B4B33;
+    --green-soft: #24593e;
+    --gold: #D4A72C;
+    --gold-soft: #E8C766;
+    --cream: #F7F2E1;
+    --cream-dim: #CFC6A8;
+    --ink: #17251C;
+    --rule: rgba(23, 37, 28, 0.12);
+    --rule-dark: rgba(247, 242, 225, 0.16);
   }
 
   * { box-sizing: border-box; }
 
-  html { -webkit-text-size-adjust: 100%; }
-
   body {
     margin: 0;
-    background:
-      radial-gradient(ellipse 900px 500px at 15% -10%, rgba(217, 169, 76, 0.07), transparent),
-      radial-gradient(ellipse 700px 500px at 100% 20%, rgba(138, 154, 112, 0.06), transparent),
-      var(--bg);
-    color: var(--chalk);
-    font-family: 'Work Sans', sans-serif;
-    line-height: 1.55;
+    background: var(--cream);
+    color: var(--ink);
+    font-family: 'Nunito Sans', sans-serif;
+    line-height: 1.6;
     -webkit-font-smoothing: antialiased;
   }
 
-  a { color: var(--gold); }
+  h1, h2, h3, .brand-name { font-family: 'Poppins', sans-serif; }
+
+  a { color: var(--green); }
   a:focus-visible, button:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
 
-  .wrap {
-    max-width: 700px;
-    margin: 0 auto;
-    padding: 0 24px;
+  .wrap { max-width: 720px; margin: 0 auto; padding: 0 24px; }
+
+  .topbar {
+    background: var(--green-deep);
+    padding: 18px 0;
   }
+  .topbar .wrap { display: flex; align-items: center; gap: 10px; }
+  .badge {
+    width: 34px; height: 34px; border-radius: 50%;
+    border: 2px solid var(--gold);
+    display: flex; align-items: center; justify-content: center;
+    flex: none;
+  }
+  .badge svg { width: 17px; height: 17px; }
+  .brand-name { color: var(--cream); font-weight: 700; font-size: 17px; letter-spacing: 0.3px; }
 
   header.hero {
-    padding: 88px 0 56px;
-    border-bottom: 1px solid var(--rule);
+    background: var(--green-deep);
+    background-image: radial-gradient(ellipse 640px 380px at 85% 0%, rgba(212, 167, 44, 0.14), transparent);
+    padding: 56px 0 64px;
   }
-
-  .wordmark {
-    font-family: 'Permanent Marker', cursive;
-    font-size: clamp(52px, 13vw, 92px);
-    line-height: 0.95;
-    color: var(--chalk);
-    margin: 0 0 6px;
-    letter-spacing: 0.5px;
-    transform: rotate(-1.2deg);
-    transform-origin: left center;
+  .hero h1 {
+    color: var(--cream);
+    font-size: clamp(38px, 8vw, 54px);
+    font-weight: 800;
+    line-height: 1.08;
+    margin: 0 0 16px;
   }
-
-  .wordmark .dot { color: var(--gold); }
-
-  .tagline {
-    font-size: clamp(18px, 3.4vw, 22px);
-    color: var(--chalk-dim);
-    max-width: 34ch;
-    margin: 18px 0 0;
+  .hero p {
+    color: var(--cream-dim);
+    font-size: clamp(17px, 3vw, 19px);
+    max-width: 40ch;
+    margin: 0;
   }
 
   section { padding: 52px 0; border-bottom: 1px solid var(--rule); }
   section:last-of-type { border-bottom: none; }
 
-  h2 {
-    font-family: 'Permanent Marker', cursive;
-    font-weight: 400;
-    font-size: clamp(28px, 5vw, 36px);
-    color: var(--gold);
-    margin: 0 0 18px;
-    transform: rotate(-0.6deg);
+  .eyebrow {
+    display: inline-block;
+    background: var(--gold);
+    color: var(--green-deep);
+    font-weight: 700;
+    font-size: 11px;
+    letter-spacing: 0.6px;
+    text-transform: uppercase;
+    padding: 5px 12px;
+    border-radius: 999px;
+    margin-bottom: 14px;
   }
 
-  p { max-width: 62ch; color: var(--chalk-dim); font-size: 16.5px; }
-  p.lede { color: var(--chalk); font-size: 17.5px; }
+  h2 {
+    font-size: clamp(24px, 4.5vw, 30px);
+    font-weight: 700;
+    color: var(--green-deep);
+    margin: 0 0 16px;
+  }
+
+  p { max-width: 62ch; color: var(--ink); font-size: 16px; }
+  p.dim { color: #4b5c4f; }
 
   .board {
-    background: var(--bg-panel);
+    background: #fff;
     border: 1px solid var(--rule);
-    border-radius: 4px;
-    padding: 32px 28px;
-    margin-top: 6px;
+    border-radius: 16px;
+    padding: 8px 28px;
+    margin-top: 24px;
+    box-shadow: 0 1px 0 rgba(23,37,28,0.03);
   }
 
-  .board-intro { margin: 0 0 28px; }
+  .menu-group + .menu-group { border-top: 1px solid var(--rule); }
+  .menu-group { padding: 24px 0; }
 
-  .menu-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 36px;
-  }
-
-  .menu-col h3 {
-    font-size: 13px;
-    font-weight: 600;
-    letter-spacing: 1.5px;
+  .menu-group .tag {
+    display: inline-block;
+    background: var(--green-deep);
+    color: var(--gold-soft);
+    font-weight: 700;
+    font-size: 11px;
+    letter-spacing: 0.6px;
     text-transform: uppercase;
-    color: var(--sage);
-    margin: 0 0 14px;
+    padding: 5px 12px;
+    border-radius: 999px;
+    margin-bottom: 14px;
   }
 
   ul.items { list-style: none; margin: 0; padding: 0; }
-
   .items li {
     display: flex;
+    justify-content: space-between;
     align-items: baseline;
-    gap: 6px;
-    padding: 7px 0;
+    gap: 16px;
+    padding: 9px 0;
   }
-
-  .items .name {
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    font-size: 15px;
-    color: var(--chalk);
-  }
-
-  .items .fill {
-    flex: 1;
-    border-bottom: 2px dotted var(--rule);
-    margin-bottom: 5px;
-    min-width: 12px;
-  }
-
-  .items .price {
-    white-space: nowrap;
-    font-weight: 600;
-    color: var(--gold);
-    font-size: 15px;
-  }
+  .items .name { font-size: 15.5px; font-weight: 600; color: var(--ink); }
+  .items .price { font-weight: 700; color: var(--green); font-size: 15.5px; white-space: nowrap; }
 
   .free-note {
-    margin-top: 26px;
-    padding-top: 22px;
-    border-top: 1px dashed var(--rule);
+    margin-top: 6px;
+    padding: 20px 0 24px;
     display: flex;
     gap: 12px;
     align-items: flex-start;
   }
-
   .free-tag {
     flex: none;
-    font-size: 12px;
+    font-size: 11px;
     font-weight: 700;
-    letter-spacing: 0.5px;
-    color: var(--bg);
-    background: var(--sage);
-    padding: 4px 9px;
-    border-radius: 3px;
+    letter-spacing: 0.4px;
+    text-transform: uppercase;
+    color: #fff;
+    background: var(--green);
+    padding: 5px 10px;
+    border-radius: 999px;
     margin-top: 2px;
   }
-
   .free-note p { margin: 0; font-size: 15px; }
 
-  .how { display: flex; flex-direction: column; gap: 10px; }
-  .how-row { display: flex; gap: 14px; align-items: baseline; }
+  .how { display: flex; flex-direction: column; gap: 18px; margin-top: 8px; }
+  .how-row { display: flex; gap: 16px; align-items: flex-start; }
   .how-row .num {
-    font-family: 'Permanent Marker', cursive;
-    color: var(--gold);
-    font-size: 20px;
     flex: none;
-    width: 28px;
+    width: 30px; height: 30px;
+    border-radius: 50%;
+    background: var(--green-deep);
+    color: var(--gold-soft);
+    font-weight: 700;
+    font-size: 14px;
+    display: flex; align-items: center; justify-content: center;
   }
   .how-row p { margin: 0; }
 
-  .contact-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    font-size: 17px;
-  }
-  .contact-list span { color: var(--chalk-dim); display: inline-block; width: 92px; }
+  .contact-list { list-style: none; padding: 0; margin: 8px 0 0; display: flex; flex-direction: column; gap: 12px; }
+  .contact-list li { display: flex; align-items: baseline; gap: 10px; font-size: 16.5px; }
+  .contact-list .label { color: #4b5c4f; width: 92px; flex: none; font-size: 13px; font-weight: 700; letter-spacing: 0.4px; text-transform: uppercase; }
+  .contact-list a { font-weight: 600; }
 
   footer {
-    padding: 40px 0 64px;
-    color: var(--chalk-dim);
-    font-size: 13.5px;
+    background: var(--green-deep);
+    color: var(--cream-dim);
+    font-size: 13px;
+    padding: 28px 0;
   }
 
   @media (max-width: 560px) {
-    header.hero { padding: 56px 0 40px; }
-    .menu-grid { grid-template-columns: 1fr; gap: 26px; }
-    .board { padding: 26px 20px; }
+    header.hero { padding: 44px 0 48px; }
+    .board { padding: 4px 20px; }
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -204,57 +194,72 @@
 </head>
 <body>
 
-  <div class="wrap">
-    <header class="hero">
-      <p class="wordmark">LIKEE<span class="dot">.</span></p>
-      <p class="tagline">Ekstensi browser buat rapiin kerjaan administratif yang berulang — yang biasanya makan waktu lama, jadi hitungan detik.</p>
-    </header>
+  <div class="topbar">
+    <div class="wrap">
+      <span class="badge">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#D4A72C" stroke-width="2" stroke-linecap="round">
+          <path d="M4 9h13a1 1 0 0 1 1 1v2a5 5 0 0 1-5 5H8a5 5 0 0 1-5-5v-2a1 1 0 0 1 1-1Z"/>
+          <path d="M18 10h1.5a2.5 2.5 0 0 1 0 5H18"/>
+          <path d="M8 4c-.8.8-.8 1.6 0 2.4M12 4c-.8.8-.8 1.6 0 2.4"/>
+        </svg>
+      </span>
+      <span class="brand-name">LIKEE</span>
+    </div>
+  </div>
 
+  <header class="hero">
+    <div class="wrap">
+      <h1>Kerjaan berulang, kelar dalam hitungan detik.</h1>
+      <p>Ekstensi browser buat rapiin kerjaan administratif yang berulang — biasanya makan waktu lama, sekarang jauh lebih cepat.</p>
+    </div>
+  </header>
+
+  <div class="wrap">
     <section id="tentang">
+      <span class="eyebrow">Tentang</span>
       <h2>Apa ini?</h2>
-      <p class="lede">LIKEE itu ekstensi browser yang saya buat sendiri buat bantu percepat kerjaan administratif yang berulang-ulang: isi data, unggah dokumen, dan proses serupa yang biasanya dikerjakan manual satu-satu.</p>
-      <p>Awalnya cuma buat kebutuhan sendiri. Sekarang beberapa rekan kerja yang punya jenis kerjaan serupa ikut pakai juga, jadi saya buka akses berlanjutnya secara terbatas — dengan model "traktir", bukan langganan formal.</p>
+      <p>LIKEE itu ekstensi browser yang saya buat sendiri buat bantu percepat kerjaan administratif yang berulang-ulang: isi data, unggah dokumen, dan proses serupa yang biasanya dikerjakan manual satu-satu.</p>
+      <p class="dim">Awalnya cuma buat kebutuhan sendiri. Sekarang beberapa rekan kerja yang punya jenis kerjaan serupa ikut pakai juga, jadi saya buka akses berlanjutnya secara terbatas, dengan model "traktir".</p>
     </section>
 
     <section id="menu">
+      <span class="eyebrow">Lanjut pakai</span>
       <h2>Menu — Traktir Point Coffee</h2>
-      <p class="board-intro">Pertama kali pakai, otomatis dapat coba gratis 1 bulan penuh. Setelah itu, kalau mau lanjut, tinggal pilih salah satu menu di bawah — anggap saja lagi nraktir kopi buat yang bikin.</p>
+      <p class="dim">Pertama kali pakai, otomatis dapat coba gratis 1 bulan penuh. Setelah itu, kalau mau lanjut, tinggal pilih salah satu menu di bawah — anggap saja lagi nraktir kopi buat yang bikin.</p>
 
       <div class="board">
-        <div class="menu-grid">
-          <div class="menu-col">
-            <h3>1 Minggu</h3>
-            <ul class="items">
-              <li><span class="name">Hot Lemon Tea</span><span class="fill"></span><span class="price">Rp15.000</span></li>
-              <li><span class="name">Hot Black Tea</span><span class="fill"></span><span class="price">Rp15.000</span></li>
-              <li><span class="name">Hot Earl Grey</span><span class="fill"></span><span class="price">Rp15.000</span></li>
-              <li><span class="name">Hot Java Ginger</span><span class="fill"></span><span class="price">Rp15.000</span></li>
-              <li><span class="name">Iced Lemon Tea</span><span class="fill"></span><span class="price">Rp18.000</span></li>
-              <li><span class="name">Iced Earl Grey</span><span class="fill"></span><span class="price">Rp18.000</span></li>
-              <li><span class="name">Hot Latte</span><span class="fill"></span><span class="price">Rp20.000</span></li>
-              <li><span class="name">Hot Cappuccino</span><span class="fill"></span><span class="price">Rp20.000</span></li>
-            </ul>
-          </div>
-          <div class="menu-col">
-            <h3>1 Bulan</h3>
-            <ul class="items">
-              <li><span class="name">Hot Latte + Cappuccino</span><span class="fill"></span><span class="price">Rp40.000</span></li>
-              <li><span class="name">Hot Mocha + Flat White</span><span class="fill"></span><span class="price">Rp40.000</span></li>
-              <li><span class="name">Signature Choc + Iced Latte</span><span class="fill"></span><span class="price">Rp45.000</span></li>
-              <li><span class="name">Caramel Macchiato + Latte</span><span class="fill"></span><span class="price">Rp50.000</span></li>
-              <li><span class="name">Pistachio + Shaken Creamy Latte</span><span class="fill"></span><span class="price">Rp50.000</span></li>
-            </ul>
-          </div>
+        <div class="menu-group">
+          <span class="tag">1 Minggu</span>
+          <ul class="items">
+            <li><span class="name">Hot Lemon Tea</span><span class="price">Rp15.000</span></li>
+            <li><span class="name">Hot Black Tea</span><span class="price">Rp15.000</span></li>
+            <li><span class="name">Hot Earl Grey</span><span class="price">Rp15.000</span></li>
+            <li><span class="name">Hot Java Ginger</span><span class="price">Rp15.000</span></li>
+            <li><span class="name">Iced Lemon Tea</span><span class="price">Rp18.000</span></li>
+            <li><span class="name">Iced Earl Grey</span><span class="price">Rp18.000</span></li>
+            <li><span class="name">Hot Latte</span><span class="price">Rp20.000</span></li>
+            <li><span class="name">Hot Cappuccino</span><span class="price">Rp20.000</span></li>
+          </ul>
         </div>
-
+        <div class="menu-group">
+          <span class="tag">1 Bulan</span>
+          <ul class="items">
+            <li><span class="name">Hot Latte + Cappuccino</span><span class="price">Rp40.000</span></li>
+            <li><span class="name">Hot Mocha + Flat White</span><span class="price">Rp40.000</span></li>
+            <li><span class="name">Signature Choc + Iced Latte</span><span class="price">Rp45.000</span></li>
+            <li><span class="name">Caramel Macchiato + Latte</span><span class="price">Rp50.000</span></li>
+            <li><span class="name">Pistachio + Shaken Creamy Latte</span><span class="price">Rp50.000</span></li>
+          </ul>
+        </div>
         <div class="free-note">
-          <span class="free-tag">GRATIS</span>
+          <span class="free-tag">Gratis</span>
           <p>Ada juga jatah "Minta Ditraktir Admin" — 3 hari pemakaian gratis, bisa diklaim ulang tiap sebulan sekali.</p>
         </div>
       </div>
     </section>
 
     <section id="cara-bayar">
+      <span class="eyebrow">Alur</span>
       <h2>Cara bayar</h2>
       <div class="how">
         <div class="how-row"><span class="num">1</span><p>Begitu masa aktif habis, langsung dari dalam ekstensi muncul pilihan menu di atas.</p></div>
@@ -264,18 +269,21 @@
     </section>
 
     <section id="kontak">
+      <span class="eyebrow">Hubungi</span>
       <h2>Kontak</h2>
       <ul class="contact-list">
-        <li><span>WhatsApp</span><a href="https://wa.me/6289506520865">+62 895-0652-0865</a></li>
-        <li><span>Email</span><a href="mailto:salehfx1@gmail.com">salehfx1@gmail.com</a></li>
+        <li><span class="label">WhatsApp</span><a href="https://wa.me/6289506520865">+62 895-0652-0865</a></li>
+        <li><span class="label">Email</span><a href="mailto:salehfx1@gmail.com">salehfx1@gmail.com</a></li>
       </ul>
     </section>
+  </div>
 
-    <footer>
+  <footer>
+    <div class="wrap">
       Dibuat &amp; dikelola mandiri oleh satu orang — bukan produk resmi perusahaan manapun.<br>
       © 2026 LIKEE.
-    </footer>
-  </div>
+    </div>
+  </footer>
 
 </body>
 </html>
